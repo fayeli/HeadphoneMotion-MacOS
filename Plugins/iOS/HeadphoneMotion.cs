@@ -149,22 +149,47 @@ namespace HearXR
         #endregion
         
         #region Import native class methods
+
+    #if UNITY_IOS
         [DllImport ("__Internal")]
+    #elif UNITY_STANDALONE_OSX
+        [DllImport ("HeadphoneMotionMacPlugin")]
+    #endif
         private static extern bool isHeadphoneMotionAvailable();
         
+    #if UNITY_IOS
         [DllImport ("__Internal")]
+    #elif UNITY_STANDALONE_OSX
+        [DllImport ("HeadphoneMotionMacPlugin")]
+    #endif
         private static extern bool areHeadphonesConnected();
         
-        [DllImport("__Internal")]
+    #if UNITY_IOS
+        [DllImport ("__Internal")]
+    #elif UNITY_STANDALONE_OSX
+        [DllImport ("HeadphoneMotionMacPlugin")]
+    #endif
         private static extern bool startTracking();
         
-        [DllImport("__Internal")]
+    #if UNITY_IOS
+        [DllImport ("__Internal")]
+    #elif UNITY_STANDALONE_OSX
+        [DllImport ("HeadphoneMotionMacPlugin")]
+    #endif
         private static extern bool stopTracking();
         
-        [DllImport("__Internal")]
+    #if UNITY_IOS
+        [DllImport ("__Internal")]
+    #elif UNITY_STANDALONE_OSX
+        [DllImport ("HeadphoneMotionMacPlugin")]
+    #endif
         private static extern void setHeadphoneConnectionDelegate(HeadphoneConnectionAction callback);
         
-        [DllImport("__Internal")]
+    #if UNITY_IOS
+        [DllImport ("__Internal")]
+    #elif UNITY_STANDALONE_OSX
+        [DllImport ("HeadphoneMotionMacPlugin")]
+    #endif
         private static extern void setRotationDelegate(HeadRotationAction callback);
         #endregion
         
