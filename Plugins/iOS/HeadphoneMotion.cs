@@ -77,7 +77,7 @@ namespace HearXR
         /// </summary>
         public static void Init()
         {
-    #if UNITY_IOS && !UNITY_EDITOR
+    #if (UNITY_IOS && !UNITY_EDITOR) || UNITY_STANDALONE_OSX
             setHeadphoneConnectionDelegate(HeadphoneConnectionChanged);
             setRotationDelegate(RotationUpdated);
     #else
@@ -91,7 +91,7 @@ namespace HearXR
         /// </summary>
         public static void StartTracking()
         {
-    #if UNITY_IOS && !UNITY_EDITOR
+    #if (UNITY_IOS && !UNITY_EDITOR) || UNITY_STANDALONE_OSX
             startTracking();
     #else
             DisplayPlatformError();
@@ -103,7 +103,7 @@ namespace HearXR
         /// </summary>
         public static void StopTracking()
         {
-    #if UNITY_IOS && !UNITY_EDITOR
+    #if (UNITY_IOS && !UNITY_EDITOR) || UNITY_STANDALONE_OSX
             stopTracking();
     #else
             DisplayPlatformError();
@@ -116,7 +116,7 @@ namespace HearXR
         /// <returns>TRUE is headphone motion API is available, FALSE otherwise.</returns>
         public static bool IsHeadphoneMotionAvailable()
         {
-    #if UNITY_IOS && !UNITY_EDITOR
+    #if (UNITY_IOS && !UNITY_EDITOR) || UNITY_STANDALONE_OSX
             return isHeadphoneMotionAvailable();
     #else
             DisplayPlatformError();
@@ -132,7 +132,7 @@ namespace HearXR
         /// <returns>TRUE if headphones are connected, FALSE otherwise.</returns>
         public static bool AreHeadphonesConnected()
         {
-    #if UNITY_IOS && !UNITY_EDITOR
+    #if (UNITY_IOS && !UNITY_EDITOR) || UNITY_STANDALONE_OSX
             return areHeadphonesConnected();
     #else
             DisplayPlatformError();
@@ -144,7 +144,7 @@ namespace HearXR
         #region Private Methods
         private static void DisplayPlatformError()
         {
-            Debug.LogWarning("HeadphoneMotion is only available on iOS platform and only at runtime.");
+            Debug.LogWarning("HeadphoneMotion is only available on iOS or macOS platform and only at runtime.");
         }
         #endregion
         
